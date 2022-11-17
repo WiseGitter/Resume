@@ -1,0 +1,151 @@
+\documentclass{article}
+\usepackage[cm]{fullpage}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage{lipsum}    
+\usepackage{graphicx}   
+\usepackage[hidelinks]{hyperref}   
+
+\hypersetup{breaklinks=true,%
+pagecolor=white,%
+colorlinks=true,%
+linkcolor=cyan,%
+urlcolor=MyDarkBlue}
+
+\definecolor{MyDarkBlue}{rgb}{0,0.0,0.45}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Formatting parameters  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newlength{\tabin}
+\setlength{\tabin}{1em}
+\newlength{\secsep}
+\setlength{\secsep}{0.1cm}
+
+\setlength{\parindent}{0in}
+\setlength{\parskip}{0in}
+\setlength{\itemsep}{0in}
+\setlength{\topsep}{0in}
+\setlength{\tabcolsep}{0in}
+
+\definecolor{contactgray}{gray}{0.3}
+\pagestyle{empty}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Template Definitions  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\lineunder}{\vspace*{-8pt} \\ \hspace*{-6pt} \hrulefill \\ \vspace*{-15pt}}
+\newcommand{\name}[1]{\begin{center}\textsc{\Huge#1}\\\end{center}}
+\newcommand{\program}[1]{\begin{center}\textsc{#1}\end{center}}
+\newcommand{\contact}[1]{\begin{center}\color{contactgray}{\small#1}\end{center}}
+
+\newenvironment{tabbedsection}[1]{
+  \begin{list}{}{
+      \setlength{\itemsep}{0pt}
+      \setlength{\labelsep}{0pt}
+      \setlength{\labelwidth}{0pt}
+      \setlength{\leftmargin}{\tabin}
+      \setlength{\rightmargin}{\tabin}
+      \setlength{\listparindent}{0pt}
+      \setlength{\parsep}{0pt}
+      \setlength{\parskip}{0pt}
+      \setlength{\partopsep}{0pt}
+      \setlength{\topsep}{#1}
+    }
+  \item[]
+}{\end{list}}
+
+\newenvironment{nospacetabbing}{
+    \begin{tabbing}
+}{\end{tabbing}\vspace{-1.2em}}
+
+\newenvironment{resume_header}{}{\vspace{0pt}}
+
+
+\newenvironment{resume_section}[1]{
+  \filbreak
+  \vspace{2\secsep}
+  \textsc{\large#1}
+  \lineunder
+  \begin{tabbedsection}{\secsep}
+}{\end{tabbedsection}}
+
+\newenvironment{resume_subsection}[2][]{
+  \textbf{#2} \hfill {\footnotesize #1} \hspace{2em}
+  \begin{tabbedsection}{0.5\secsep}
+}{\end{tabbedsection}}
+
+\newenvironment{subitems}{
+  \renewcommand{\labelitemi}{-}
+  \begin{itemize}
+      \setlength{\labelsep}{1em}
+}{\end{itemize}}
+
+\newenvironment{resume_employer}[4]{
+  \vspace{\secsep}
+  \textbf{#1} \\ 
+  \indent {\small #2} \hfill {\footnotesize#3 (#4)}
+  \begin{tabbedsection}{0pt}
+  \begin{subitems}
+}{\end{subitems}\end{tabbedsection}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% Start Document % 
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\begin{resume_header}
+\name{Siddhant Sinha}
+\program{Data Analyst}
+\contact{siddhantsinha2603@gmail.com \hspace{2cm} +48 577102659 \hspace{2cm}Ul. Waryńskiego 12, Warszawa}
+
+\vspace{0.3cm}
+%\\marginpar{%
+\hspace{8cm}\href{https://github.com/WiseGitter}%
+{\includegraphics[width=20pt]{Github.png}}%
+}     \hspace{0.5cm}\href{https://www.linkedin.com/in/siddhant-sinha-222960167/}%
+{\includegraphics[width=25pt]{Linkedin.png}}%
+}%
+
+
+\end{resume_header}
+\begin{resume_section}{About Me} \begin{nospacetabbing}
+\textbf{Technical Skills} \= Python(Panda | NumPy), Tableau, Java, Excel VBA, MySQL, HTML, Data Analytics, \LaTeX\\*
+\textbf{Non-Technical Skills} \= Communication Skills, Database Management, Statistics\\*
+\textbf{Languages} \> Fluent in English; Native Hindi\\* \end{nospacetabbing}
+\end{resume_section}
+\begin{resume_section}{Work Experience}
+\begin{resume_employer}{Testronic Labs}{QA Technician}{Warsaw, PL}{August
+2021 - September 2022}
+\item Analysed test data to determine performance and reliability of Projects. 
+\item Recorded fndings of inspection process, collaborating with quality team to implement corrective actions.
+\item Conduct day-to-day project coordination, planning, and implementation across multiple teams using software such as JIRA, MS Excel, Microsoft Azure etc.
+\item Owning resolution of Advocate inquiries, coaching your teammates through unfamiliar or escalated interactions via live-chat and in-person interactions.
+\item Provided regular updates to team leadership on quality metrics by communicating consistent problems or production defciencies.
+\item Actively participating in QA meetings, internal and external U.S calibrations \end{resume_employer}
+\begin{resume_employer}{Sitel Group}{Customer Service Specialist}{Warsaw, PL}{April 2020 - August 2020}
+\item Handling inbound and outbound service calls/emails related to providing product/service information
+\item Using internal tools to resolve product and service complaints in a timely and professional manner
+\item Fulfilling allocated training, improving product knowledge through reviewing articles, macros.
+\item Driving improvements by collecting and escalating feedback from internal and external customers
+\end{resume_employer} \end{resume_section}
+\begin{resume_section}{Education} \begin{resume_subsection}[Warsaw, PL (Oct 2019--Present)]{Warsaw
+University of Technology} \begin{subitems}
+\item Bachelors in Automotive Mechatronics \end{subitems}
+\end{resume_subsection}
+\begin{resume_subsection}[Jamshedpur, IND (03, 2018)]{Sri Krishna Public School}
+\begin{subitems}
+\item High School Diploma in STEM
+\end{subitems} \end{resume_subsection}
+\end{resume_section}
+\begin{resume_section}{Certification} \begin{resume_subsection}[Issued by : Coursera (Oct 2022)]{IBM Data
+Science Professional Certification} \begin{subitems}
+\item Data Science Methodology
+\item Tools for Data Science
+\item Databases and SQL for DS with Python
+
+\item Data Visualisation with Python \end{subitems}
+\end{resume_subsection} \end{resume_section}
+\end{document}
