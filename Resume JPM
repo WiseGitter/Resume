@@ -108,8 +108,6 @@ urlcolor=MyDarkBlue}
 
 \vspace{0.2cm}
 %\\marginpar{%
-\hspace{8.5cm}\href{https://github.com/WiseGitter}%
-{\includegraphics[width=20pt]{Github.png}}%
 }     \hspace{0.5cm}\href{https://www.linkedin.com/in/siddhant-sinha-222960167/}%
 {\includegraphics[width=25pt]{Linkedin.png}}%
 }%
