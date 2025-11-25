@@ -1,0 +1,180 @@
+\documentclass{article}
+\usepackage[cm]{fullpage}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage{lipsum}    
+\usepackage{xcolor}
+\usepackage{graphicx}   
+\usepackage[hidelinks]{hyperref}   
+\usepackage[colorlinks]{hyperref}
+\usepackage[dvipsnames]{xcolor}
+
+\hypersetup{breaklinks=true,%
+pagecolor=white,%
+colorlinks=true,%
+linkcolor=cyan,%
+urlcolor=MyDarkBlue}
+
+\definecolor{MyDarkBlue}{rgb}{0,0.0,0.45}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Formatting parameters  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newlength{\tabin}
+\setlength{\tabin}{1em}
+\newlength{\secsep}
+\setlength{\secsep}{0.1cm}
+
+\setlength{\parindent}{0in}
+\setlength{\parskip}{0in}
+\setlength{\itemsep}{0in}
+\setlength{\topsep}{0in}
+\setlength{\tabcolsep}{0in}
+
+\definecolor{contactgray}{gray}{0.3}
+\pagestyle{empty}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Template Definitions  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\lineunder}{\vspace*{-8pt} \\ \hspace*{-6pt} \hrulefill \\ \vspace*{-15pt}}
+\newcommand{\name}[1]{\begin{center}\textsc{\Huge#1}\\\end{center}}
+\newcommand{\program}[1]{\begin{center}\textsc{#1}\end{center}}
+\newcommand{\contact}[1]{\begin{center}\color{contactgray}{\small#1}\end{center}}
+
+\newenvironment{tabbedsection}[1]{
+  \begin{list}{}{
+      \setlength{\itemsep}{0pt}
+      \setlength{\labelsep}{0pt}
+      \setlength{\labelwidth}{0pt}
+      \setlength{\leftmargin}{\tabin}
+      \setlength{\rightmargin}{\tabin}
+      \setlength{\listparindent}{0pt}
+      \setlength{\parsep}{0pt}
+      \setlength{\parskip}{0pt}
+      \setlength{\partopsep}{0pt}
+      \setlength{\topsep}{#1}
+    }
+  \item[]
+}{\end{list}}
+
+\newenvironment{nospacetabbing}{
+    \begin{tabbing}
+}{\end{tabbing}\vspace{-1.2em}}
+
+\newenvironment{resume_header}{}{\vspace{0pt}}
+
+
+\newenvironment{resume_section}[1]{
+  \filbreak
+  \vspace{2\secsep}
+  \textsc{\large#1}
+  \lineunder
+  \begin{tabbedsection}{\secsep}
+}{\end{tabbedsection}}
+
+\newenvironment{resume_subsection}[2][]{
+  \textbf{#2} \hfill {\footnotesize #1} \hspace{2em}
+  \begin{tabbedsection}{0.5\secsep}
+}{\end{tabbedsection}}
+
+\newenvironment{subitems}{
+  \renewcommand{\labelitemi}{-}
+  \begin{itemize}
+      \setlength{\labelsep}{1em}
+}{\end{itemize}}
+
+\newenvironment{resume_employer}[4]{
+  \vspace{\secsep}
+  \textbf{#1} \\ 
+  \indent {\small #2} \hfill {\footnotesize#3 (#4)}
+  \begin{tabbedsection}{0pt}
+  \begin{subitems}
+}{\end{subitems}\end{tabbedsection}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% 
+% Start Document % 
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\begin{resume_header}
+\name{Siddhant Sinha}
+\contact{siddhantsinha2603@gmail.com \hspace{2cm} +48 577102659 \hspace{2cm} Warszawa}
+{\color{darkgray}
+
+\vspace{0.2cm}
+%\\marginpar{%
+\hspace{8.5cm}
+}     \hspace{0.5cm}\href{https://www.linkedin.com/in/siddhant-sinha-222960167/}%
+{\includegraphics[width=25pt]{linkedin.png}}%
+}%
+
+\begin{resume_section}{\hspace{8.5cm}\color{black}{Education}} \begin{resume_subsection}[Warsaw, PL (Oct 2025)]{Warsaw
+University of Technology} \begin{subitems}
+\item BSC in Automotive Mechatronics 
+\item Thesis in Vehicle Communication Systems
+\end{subitems}
+\end{resume_subsection}
+
+
+\begin{resume_section}{\hspace{7.5cm}\color{black}{Work Experience}}
+\begin{resume_employer}{Thomson Reuters}{\color{darkgray}
+\vspace{-0.4cm}\begin{resume_subsection}{Professional Services Developer}}{Warsaw, PL}{June 2024 - Present}
+
+\item Promoted to lead the end-to-end migration of enterprise client data from competing platforms into our ecosystem — combining deep technical execution with client-facing ownership and strategic process design.
+\item Delivered bespoke solutions by writing tailored SQL scripts for clients, enabling advanced functionality and customization on the front end.
+\item Designed and implemented a new migration system and process from the ground up, reducing average project turnaround time by 30\% and significantly increasing departmental throughput and profitability.
+\item Created a standardized process for the installation team that improved operational efficiency by 40\%, enabling smoother deployments with minimal technical input.
+\end{resume_employer}
+\end{resume_subsection}
+% --- Additional roles at the same company (do NOT re-print company name) ---
+\begin{resume_subsection}[Warsaw, PL (Feb 2023 - Nov 2023)]{\color{darkgray}{Client Services Administrator}}
+
+\begin{subitems}
+\item Promoted into a cross-functional role focused on improving client onboarding, streamlining internal operations, and enhancing visibility across product lifecycles and sales pipelines.
+\item Oversaw licensing and product deployment across multiple solutions, ensuring compliance, timely activation, and a seamless end-to-end experience for clients.
+\item Created multiple dynamic visualisation tools on Power BI portal, including for the executive sales team, enabling real-time tracking of sales opportunities and onboarding progress — tailored to individual sales reps and synced with a centralized, regularly updated database.
+\end{subitems}
+\end{resume_subsection}
+
+\begin{resume_subsection}[Warsaw, PL (Feb 2023 - Nov 2023)]{\color{darkgray}{Support Engineer}}
+\begin{subitems}
+\item Provided frontline technical support for enterprise clients, resolving critical software and system issues across global platforms.
+\item Built and maintained a centralized internal resource database — enabling easy access to key documentation, tools, and links across the entire support team.
+\end{subitems}
+\end{resume_subsection}
+
+
+\begin{resume_employer}{Testronic Labs}{\color{darkgray}{QA Technician}}{Warsaw, PL}{August
+2021 - September 2022}
+
+\item Analysed test data to determine performance and reliability of Projects. 
+\item Recorded fndings of inspection process, collaborating with quality team to implement corrective actions.
+\item Conduct day-to-day project coordination, planning, and implementation across multiple teams using software such as JIRA, MS Excel, Microsoft Azure etc.
+ \end{resume_employer}
+
+
+
+ \end{resume_section}
+
+\end{resume_header}
+\begin{resume_section}{\hspace{8.5cm}\color{black}{My skills}} \begin{nospacetabbing}
+\textbf{\color{black}{Skills}} \= Python, SQL, Tableau, Excel VBA, Alteryx, HTML, Data Analytics, MS Azure, Jira, Git, Statistics \\*
+\textbf{\color{black}{Skills}} \= Communication Skills, Leadership, Complex problem solving, Detail-Oriented \\*
+\textbf{\color{black}{Languages}} \= Fluent in English; Native Hindi\\* \end{nospacetabbing}
+\end{resume_section}
+
+
+
+\begin{resume_section}{\hspace{8cm}\color{Black}{Certification}} 
+\begin{resume_subsection}[Issued by : McKinsey \& Co (August 2025)]{Leadership Essentials} \begin{subitems}
+\item Business Leadership
+\item Strategy, Pricing, Team building
+\end{subitems}
+
+
+
+
+\end{document}
